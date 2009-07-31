@@ -1,0 +1,1 @@
+This tool allows to you to write the commit log of your git repository to your mite (http://mite.yo.lk - an impressive time tracking tool) account in order to auto-fill your timesheets.

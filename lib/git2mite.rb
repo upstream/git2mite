@@ -18,11 +18,11 @@ def get_api_key
   configuration.api_key || configuration.api_key = gui.ask('What is your api key?')
 end
 
-def check_if_git_repo!(repo)
+def check_if_git_repo!(repo, gui)
   gui.error "Please change to a directory that is a git repository." unless repo.is_git_repo?
 end
 
-def check_ruby_version!
+def check_ruby_version!(gui)
   gui.error "Sorry you need Ruby 1.9 for this." if RUBY_VERSION < '1.9.1'
 end
 
@@ -30,8 +30,8 @@ gui = Gui.new
 repo  = GitRepo.new
 
 gui.print_welcome
-check_if_git_repo!(repo)
-check_ruby_version!
+check_if_git_repo!(repo, gui)
+check_ruby_version!(gui)
 client = MiteClient.new('http://upstream.mite.yo.lk', get_api_key)
 project_id = gui.get_project_id(client.projects)
 user_id = gui.get_user_id(User.all(client))

@@ -5,7 +5,7 @@ require 'rest_client'
 gem 'json'
 require 'json'
 
-
+gem 'builder'
 require 'builder'
 
 class MiteClient

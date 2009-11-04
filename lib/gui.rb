@@ -51,8 +51,8 @@ Question, Problems, Source Code: http://github.com/upstream/git2mite
   end
   
   def get_date(label)
-    answer = ask("Enter the #{label} (yyyy-mm-dd):")
-    Date.parse(answer) rescue error('invalid date')
+    answer = ask("Enter the #{label} (yyyy-mm-dd) [#{Date.today}]:")
+    (answer.strip.empty? ? Date.today : Date.parse(answer))  rescue error('invalid date')
   end
   
 end

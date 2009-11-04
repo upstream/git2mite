@@ -7,17 +7,21 @@ describe Gui do
       @gui = Gui.new
     end
     it "should use entered date" do
-      $stdin = StringIO.new "2008-09-11" 
-      date = @gui.get_date('start date')
-
+      date = inject_input("2008-09-11"){@gui.get_date('start date')}
       date.should == Date.parse('2008-09-11')
     end
     
     it "should use the current date if no date entered" do
-      $stdin = StringIO.new "\n" 
-      date = @gui.get_date('start date')
+      date = inject_input("\n"){@gui.get_date('start date')}
       date.should == Date.today
-      
+    end
+    
+    def inject_input(string, &block) 
+      org_in = $stdin
+      $stdin = StringIO.new(string)
+      result = yield
+      $stdin = org_in
+      result
     end
   end
 end

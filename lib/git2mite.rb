@@ -15,7 +15,11 @@ class Git2Mite
   end
 
   def get_api_key
-    configuration.api_key || configuration.api_key = @gui.ask('What is your api key?')
+    configuration.api_key ||= @gui.ask('What is your api key?').strip
+  end
+  
+  def get_sub_domain
+    configuration.sub_domain ||= @gui.ask('What is your account sub domain?').strip
   end
 
   def check_if_git_repo!
@@ -34,7 +38,7 @@ class Git2Mite
     @gui.print_welcome
     check_if_git_repo!
     check_ruby_version!
-    client = MiteClient.new('http://upstream.mite.yo.lk', get_api_key)
+    client = MiteClient.new("http://#{get_sub_domain}.mite.yo.lk", get_api_key)
     project_id = @gui.get_project_id(client.projects)
     user_id = @gui.get_user_id(User.all(client))
     start_date = @gui.get_date('start date')

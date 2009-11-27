@@ -14,8 +14,18 @@ class Configuration
     @config[:api_key]
   end
   
+  def sub_domain
+    @config[:sub_domain]
+  end
+  
+  def sub_domain=(value)
+    @config[:sub_domain] = value.strip
+    store_config
+  end
+  
+  
   def api_key=(value)
-    @config[:api_key] = value
+    @config[:api_key] = value.strip
     store_config
   end
   

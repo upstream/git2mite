@@ -19,7 +19,7 @@ class Git2Mite
   end
   
   def get_sub_domain
-    configuration.sub_domain ||= @gui.ask('What is your account sub domain?').strip
+    configuration.sub_domain ||= @gui.ask('What is your account subdomain?').strip
   end
 
   def check_if_git_repo!

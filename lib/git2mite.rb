@@ -2,7 +2,7 @@
 # * check if api key is valid
 # * run as post commit hook?
 
-$LOAD_PATH << File.dirname(__FILE__) + '/../lib'
+$LOAD_PATH.unshift File.dirname(__FILE__) + '/../lib'
 require 'configuration'
 require 'user'
 require 'mite_client'
@@ -11,7 +11,7 @@ require 'git_repo'
 
 
 def configuration
-  @configuration ||= Configuration.new
+  @configuration ||= Git2Mite::Configuration.new
 end
 
 def get_api_key
@@ -26,15 +26,15 @@ def check_ruby_version!(gui)
   gui.error "Sorry you need Ruby 1.9 for this." if RUBY_VERSION < '1.9.1'
 end
 
-gui = Gui.new
-repo  = GitRepo.new
+gui = Git2Mite::Gui.new
+repo  = Git2Mite::GitRepo.new
 
 gui.print_welcome
 check_if_git_repo!(repo, gui)
 check_ruby_version!(gui)
-client = MiteClient.new('http://upstream.mite.yo.lk', get_api_key)
+client = Git2Mite::MiteClient.new('http://upstream.mite.yo.lk', get_api_key)
 project_id = gui.get_project_id(client.projects)
-user_id = gui.get_user_id(User.all(client))
+user_id = gui.get_user_id(Git2Mite::User.all(client))
 start_date = gui.get_date('start date')
 end_date = gui.get_date('end date')
 commits = repo.commits start_date, end_date

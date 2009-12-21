@@ -16,7 +16,7 @@ module Git2Mite
 
     def ask(question)
       print "#{question}: "
-      gets
+      $stdin.gets
     end
   
     def error(reason)
@@ -52,8 +52,12 @@ module Git2Mite
     end
   
     def get_date(label)
-      answer = ask("Enter the #{label} (yyyy-mm-dd):")
-      Date.parse(answer) rescue error('invalid date')
+      answer = ask("Enter the #{label} (yyyy-mm-dd) [#{Date.today}]")
+      begin
+        answer.strip.empty? ? Date.today : Date.parse(answer)
+      rescue(ArgumentError)
+        error('invalid date')
+      end
     end
   
   end

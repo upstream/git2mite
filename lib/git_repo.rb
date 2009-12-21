@@ -10,11 +10,10 @@ module Git2Mite
       IO.popen("git log --pretty=format:%ai\\|%s\\|%ae --no-merges --before=#{end_date + 1} --after=#{start_date}") do |io|
         while line = io.gets
           date, message, author = line.split('|')
-          lines.unshift [Date.parse(date), message.strip, author]
+          lines.unshift [Date.parse(date), message.strip, author.strip]
         end
+        lines
       end
-      lines
     end
-  
   end
 end

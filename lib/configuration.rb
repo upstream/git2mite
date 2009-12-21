@@ -15,10 +15,21 @@ module Git2Mite
       @config[:api_key]
     end
   
-    def api_key=(value)
-      @config[:api_key] = value
-      store_config
-    end
+  def sub_domain
+    @config[:sub_domain]
+  end
+  
+  def sub_domain=(value)
+    @config[:sub_domain] = value.strip
+    store_config
+    @config[:sub_domain]
+  end
+  
+  def api_key=(value)
+    @config[:api_key] = value.strip
+    store_config
+    @config[:api_key]
+  end
   
     private
   

@@ -1,5 +1,5 @@
 require File.dirname(__FILE__) + '/spec_helper'
-require 'configuration'
+require 'git2mite/configuration'
 
 describe Git2Mite::Configuration do
   before(:each) do

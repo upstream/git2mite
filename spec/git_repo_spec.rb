@@ -1,5 +1,5 @@
 require File.dirname(__FILE__) + '/spec_helper'
-require 'git_repo'
+require 'git2mite/git_repo'
 
 
 describe Git2Mite::GitRepo do

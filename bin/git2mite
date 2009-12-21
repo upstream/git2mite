@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require 'git2mite'
+Git2Mite::App.new.run

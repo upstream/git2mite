@@ -1,5 +1,5 @@
 require File.dirname(__FILE__) + '/spec_helper'
-require 'gui'
+require 'git2mite/gui'
 
 describe Git2Mite::Gui do
   describe "get date" do

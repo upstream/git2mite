@@ -5,10 +5,10 @@ This tool allows to you to write the commit log of your git repository to your m
 # Installation
 
 git2mite is available as gem, so installation is as easy as running:
-    ` gem install git2mite `
+    gem install git2mite
 
 Note: You might need to add gemcutter.org to your gem sources if you haven't done this already:
-    ` gem sources -a http://gemcutter.org `
+    gem sources -a http://gemcutter.org
 
 # Usage
 

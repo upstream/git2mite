@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/spec_helper'
-require 'configuration'
+require 'git2mite/configuration'
 
-describe Configuration do
+describe Git2Mite::Configuration do
   before(:each) do
     @path = 'test_config.yml'
     File.unlink(@path) if File.exist?(@path)
@@ -12,13 +12,13 @@ describe Configuration do
   end
   
   it "should persist a value" do
-    config = Configuration.new(@path)
+    config = Git2Mite::Configuration.new(@path)
     config.api_key = '123'
-    Configuration.new(@path).api_key.should == '123'
+    Git2Mite::Configuration.new(@path).api_key.should == '123'
   end
   
   it "should return the value on setting it" do
-    returned = Configuration.new(@path).api_key = '234'
+    returned = Git2Mite::Configuration.new(@path).api_key = '234'
     returned.should == '234'
   end
 end

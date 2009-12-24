@@ -13,5 +13,4 @@ Note: You might need to add gemcutter.org to your gem sources if you haven't don
 # Usage
 
 Just run it from within the project you want to add mite entries for and follow the onscreen instructions
-
-` #project_path git2mite `
+    #project_path git2mite

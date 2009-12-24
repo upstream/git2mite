@@ -1,11 +1,12 @@
 require File.dirname(__FILE__) + '/spec_helper'
-require 'gui'
+require 'git2mite/gui'
 
-describe Gui do
+describe Git2Mite::Gui do
   describe "get date" do
     before(:each) do
-      @gui = Gui.new
+      @gui = Git2Mite::Gui.new
     end
+    
     it "should use entered date" do
       date = inject_input("2008-09-11"){@gui.get_date('start date')}
       date.should == Date.parse('2008-09-11')
@@ -17,10 +18,10 @@ describe Gui do
     end
     
     def inject_input(string, &block) 
-      org_in = $stdin
+      orig_in = $stdin
       $stdin = StringIO.new(string)
       result = yield
-      $stdin = org_in
+      $stdin = orig_in
       result
     end
   end

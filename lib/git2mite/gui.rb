@@ -8,8 +8,8 @@ module Git2Mite
   your git repository to your mite account in order
   to auto-fill your timesheets.
 
-  Brought to you by http://upstream-berlin.com
-  Question, Problems, Source Code: http://github.com/upstream/git2mite
+  Brought to you by http://upstre.am
+  Questions, Problems, Source Code: http://github.com/upstream/git2mite
     
       WELCOME
     end

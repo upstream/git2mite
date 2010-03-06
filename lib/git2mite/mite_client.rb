@@ -33,7 +33,7 @@ module Git2Mite
     end
   
     def get(path)
-      JSON.parse(RestClient.get(@url + path, {'X-MiteApiKey' => @api_key, 'Content-Type' => 'application/json'}))
+      JSON.parse(RestClient.get(@url + path, {'X-MiteApiKey' => @api_key, 'Content-Type' => 'application/json'}).to_s)
     end
   
     private

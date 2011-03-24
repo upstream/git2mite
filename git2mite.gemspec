@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{git2mite}
-  s.version = "0.0.2"
+  s.version = "0.0.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Alexander Lang", "Thilo Utke", "Robin Mehner"]
-  s.date = %q{2010-06-03}
+  s.date = %q{2011-03-24}
   s.default_executable = %q{git2mite}
   s.email = %q{alex@upstre.am}
   s.executables = ["git2mite"]
@@ -30,7 +30,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/upstream/git2mite}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.6}
+  s.rubygems_version = %q{1.3.7}
   s.summary = %q{writes your git commit messages to your mite account}
   s.test_files = [
     "spec/configuration_spec.rb",
@@ -44,7 +44,7 @@ Gem::Specification.new do |s|
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
-    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<json>, [">= 0"])
       s.add_runtime_dependency(%q<rest-client>, [">= 0"])
       s.add_runtime_dependency(%q<builder>, [">= 0"])

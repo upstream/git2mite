@@ -7,7 +7,7 @@ module Git2Mite
   
     def commits(start_date, end_date)
       lines = []
-      IO.popen("git log --pretty=format:%ai\\|%s\\|%ae --no-merges --before=#{end_date + 1} --after=#{start_date}") do |io|
+      IO.popen("git log --pretty=format:%ai\\|%s\\|%ae --no-merges --before=#{end_date + 1} --after=#{start_date - 1}") do |io|
         while line = io.gets
           date, message, author = line.split('|')
           lines.unshift [Date.parse(date), message.strip, author.strip]
